@@ -67,6 +67,7 @@
             for (int i = 0; i < ss.Length; i++)
                 for (int j = 0; j < ss[i].Length; j++)
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.SetCursorPosition(j + 25, i + 10);
                     Console.Write(ss[i][j]);
                     System.Threading.Thread.Sleep(5);
@@ -79,6 +80,7 @@
         {
             Init();
             SplashScreen();
+            Load();
             
         }
         static void Main(string[] args)
