@@ -14,6 +14,34 @@
         int apples;
         int level = 0;
 
+
+        void Load(int level = 1)
+        {
+            vx = 0;
+            vy = 1;
+            headX = w / 2;
+            headY = h / 2;
+            GameField = new int[w + 1, h + 1];
+            GameField[headX, headY] = 1;
+            Random random = new Random();
+            apples = level + 1;
+
+            for (int i = 0; i < apples; i++)
+                GameField[random.Next(1, w), random.Next(1, h)] = -1;
+
+
+            for (int i = 0; i <= w; i++)
+            {
+                GameField[i, 0] = 10000;
+                GameField[i, h] = 10000;
+            }
+            for (int i = 0; i < h; i++)
+            {
+                GameField[0, i] = 10000;
+                GameField[w, i] = 10000;
+
+            }
+        }
         void Init()
         {
             Console.CursorVisible = false;
