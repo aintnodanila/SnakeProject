@@ -14,7 +14,13 @@
         int apples;
         int level = 0;
 
+        void Init()
+        {
+            Console.CursorVisible = false;
+            Console.SetWindowSize(w + 1, h + 3);
+            Console.SetBufferSize(w + 1, h + 3);
 
+        }
         void SplashScreen()
         {
             string[] ss = new string[10];
@@ -43,7 +49,9 @@
         }
         public void Game()
         {
+            Init();
             SplashScreen();
+            
         }
         static void Main(string[] args)
         {
