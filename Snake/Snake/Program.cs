@@ -14,7 +14,37 @@
         int apples;
         int level = 0;
 
+        void PrintGameField()
+        {
 
+            for (int y = 0; y <= h; y++)
+                for (int x = 0; x <= w; x++)
+                {
+                    Console.SetCursorPosition(x, y + 1);
+
+                    switch (GameField[x, y])
+                    {
+                        case 0:
+                            Console.WriteLine(' ');
+                            break;
+
+                        case -1:
+                            Console.WriteLine('b');
+                            break;
+
+                        case 1:
+                            Console.WriteLine('o');
+                            break;
+
+                        default:    
+                            Console.WriteLine('#');
+                            break;
+                    }
+                }
+
+            Console.SetCursorPosition(10, 0);
+            Console.Write($"LVL:{level} SCORE:{score} LIFES:{lifes} APPLES:{apples}");
+        }
         void Load(int level = 1)
         {
             vx = 0;
@@ -73,7 +103,7 @@
                     System.Threading.Thread.Sleep(5);
                 }
             Console.SetCursorPosition(30, 25);
-            Console.Write("Press any key to start");
+            Console.Write("PRESS ANY KEY TO START");
             Console.ResetColor();
         }
         public void Game()
@@ -81,6 +111,7 @@
             Init();
             SplashScreen();
             Load();
+            PrintGameField();
             
         }
         static void Main(string[] args)
