@@ -2,6 +2,8 @@
 {
     internal class Program
     {
+        System.Timers.Timer timer = new System.Timers.Timer();
+
         bool quit = false;
         int vx;
         int vy;
@@ -14,6 +16,48 @@
         int apples;
         int level = 0;
 
+        void KeyBoardUpdate()
+        {
+
+            if (Console.KeyAvailable)
+            {
+
+                ConsoleKey key = Console.ReadKey().Key;
+                System.Diagnostics.Debug.WriteLine(key);
+                System.Diagnostics.Debug.WriteLine("X=" + headX + " Y=" + headY + " VX=" + vx + " VY=" + vy);
+                Console.Title = DateTime.Now.ToLongTimeString();
+                switch (key)
+                {
+
+                    case ConsoleKey.LeftArrow:
+                        vx = -1;
+                        vy = 0;
+                        break;
+
+                    case ConsoleKey.RightArrow:
+                        vx = 1;
+                        vy = 0;
+                        break;
+
+                    case ConsoleKey.UpArrow:
+                        vx = 0;
+                        vy = -1;
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        vx = 0;
+                        vy = 1;
+                        break;
+
+                    case ConsoleKey.Escape:
+                        timer.Stop();
+                        quit = true;
+                        Console.WriteLine("SEE YOU SOON");
+                        break;
+                }
+
+            }
+        }
         void PrintGameField()
         {
 
