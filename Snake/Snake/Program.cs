@@ -12,9 +12,9 @@
         int[,] GameField;
         int w = 80, h = 40;
         int score = 0;
-        int lifes = 3;
+        int lifes = 5;
         int apples;
-        int level = 0;
+        int garden = 0;
 
         bool Collision()
         {
@@ -25,6 +25,8 @@
 
         void Update()
         {
+
+
             headX += vx;
             headY += vy;
             if (Collision()) return;
@@ -134,9 +136,9 @@
                 }
 
             Console.SetCursorPosition(10, 0);
-            Console.Write($"LEVEL: {level} SCORE: {score} LIFES: {lifes} APPLES: {apples}");
+            Console.Write($"GARDEN: {garden} SCORE: {score} LIFES: {lifes} APPLES: {apples}");
         }
-        void Load(int level = 1)
+        void Load(int garden = 1)
         {
             vx = 0;
             vy = 1;
@@ -145,7 +147,7 @@
             GameField = new int[w + 1, h + 1];
             GameField[headX, headY] = 1;
             Random random = new Random();
-            apples = level + 1;
+            apples = 25;
 
             for (int i = 0; i < apples; i++)
                 GameField[random.Next(1, w), random.Next(1, h)] = -1;
@@ -194,7 +196,7 @@
                     Console.SetCursorPosition(j + 25, i + 10);
                     Console.Write(ss[i][j]);
                
-                    System.Threading.Thread.Sleep(5);
+                    System.Threading.Thread.Sleep(10);
                 }
             Console.SetCursorPosition(30, 25);
             Console.Write("PRESS ANY KEY TO START");
@@ -207,7 +209,7 @@
             Console.ReadKey();
             while (lifes > 0)
             {
-                Load(++level);
+                Load(++garden);
                 PrintGameField();
                 Console.ReadKey();
                 while (!quit)
