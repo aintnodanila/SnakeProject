@@ -13,7 +13,7 @@
         int w = 80, h = 40;
         int score = 0;
         int lifes = 5;
-        int apples;
+        int mushrooms;
         int garden = 0;
 
         bool Collision()
@@ -34,8 +34,8 @@
             if (GameField[headX, headY] < 0)
             {
                 score++;
-                apples--;
-                if (apples == 0)
+                mushrooms--;
+                if (mushrooms == 0)
                 {
                     quit = true;
                     return;
@@ -136,7 +136,7 @@
                 }
 
             Console.SetCursorPosition(10, 0);
-            Console.Write($"GARDEN: {garden} SCORE: {score} LIFES: {lifes} APPLES: {apples}");
+            Console.Write($"GARDEN: {garden} SCORE: {score} LIFES: {lifes} MUSHROOMS: {mushrooms}");
         }
         void Load(int garden = 1)
         {
@@ -147,9 +147,9 @@
             GameField = new int[w + 1, h + 1];
             GameField[headX, headY] = 1;
             Random random = new Random();
-            apples = 25;
+            mushrooms = 25;
 
-            for (int i = 0; i < apples; i++)
+            for (int i = 0; i < mushrooms; i++)
                 GameField[random.Next(1, w), random.Next(1, h)] = -1;
 
 
