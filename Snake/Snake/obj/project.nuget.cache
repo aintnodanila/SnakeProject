@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZEZfcE3Hss0TR+t9gMRV399SMPJu6RyiQ4DUVkOrvtyF1fgU3CVK2Od/1+2629a69aIWxr5XkLW1fyyxbpXvMQ==",
+  "dgSpecHash": "sT/czzqQnbqYmD+r3873TiEkb6hsu7Sqr4zGo8ndhsmgR26ug1HPfQD09fx4ZgxErn3/Eqbwe85SJ3wOcNLdVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\skinn\\OneDrive\\Рабочий стол\\SnakeProject\\Snake\\Snake\\Snake.csproj",
+  "projectFilePath": "C:\\Users\\skinn\\Source\\Repos\\SnakeProject\\Snake\\Snake\\Snake.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

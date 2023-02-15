@@ -120,7 +120,7 @@
                             break;
 
                         case -1:
-                            Console.WriteLine('b');
+                            Console.WriteLine('@');
                             break;
 
                         case 1:
@@ -166,6 +166,8 @@
         void Init()
         {
             Console.CursorVisible = false;
+            
+            // Works only on Windows
             Console.SetWindowSize(w + 1, h + 3);
             Console.SetBufferSize(w + 1, h + 3);
 
@@ -191,7 +193,8 @@
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.SetCursorPosition(j + 25, i + 10);
                     Console.Write(ss[i][j]);
-                    System.Threading.Thread.Sleep(15);
+               
+                    System.Threading.Thread.Sleep(5);
                 }
             Console.SetCursorPosition(30, 25);
             Console.Write("PRESS ANY KEY TO START");
