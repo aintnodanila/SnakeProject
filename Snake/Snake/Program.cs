@@ -45,7 +45,7 @@
                 Next(headX, headY, 1);
 
         }
-        
+
         void Next(int tailX, int tailY, int n, int p = 0)
         {
 
@@ -99,7 +99,7 @@
                     case ConsoleKey.Escape:
                         timer.Stop();
                         quit = true;
-                        Console.WriteLine("SEE YOU SOON");
+                        Console.WriteLine("SEE YOU SOON!");
                         break;
                 }
 
@@ -128,13 +128,13 @@
                             break;
 
                         default:
-                            Console.WriteLine('#');
+                            Console.WriteLine('█');
                             break;
                     }
                 }
 
             Console.SetCursorPosition(10, 0);
-            Console.Write($"LVL:{level} SCORE:{score} LIFES:{lifes} APPLES:{apples}");
+            Console.Write($"LEVEL: {level} SCORE: {score} LIFES: {lifes} APPLES: {apples}");
         }
         void Load(int level = 1)
         {
@@ -188,10 +188,10 @@
             for (int i = 0; i < ss.Length; i++)
                 for (int j = 0; j < ss[i].Length; j++)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.SetCursorPosition(j + 25, i + 10);
                     Console.Write(ss[i][j]);
-                    System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(15);
                 }
             Console.SetCursorPosition(30, 25);
             Console.Write("PRESS ANY KEY TO START");
@@ -202,7 +202,7 @@
             Init();
             SplashScreen();
             Console.ReadKey();
-            while (lifes>0)
+            while (lifes > 0)
             {
                 Load(++level);
                 PrintGameField();
@@ -212,6 +212,7 @@
                     KeyBoardUpdate();
                     Update();
                     PrintGameField();
+                    System.Threading.Thread.Sleep(5);
                 }
                 lifes--;
                 quit = false;
