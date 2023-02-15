@@ -16,6 +16,53 @@
         int apples;
         int level = 0;
 
+        bool Collision()
+        {
+            if (GameField[headX, headY] > 0) quit = true;
+            if (headX < 1 || headX >= w || headY < 1 || headY >= h) quit = true;
+            return quit;
+        }
+
+        void Update()
+        {
+            headX += vx;
+            headY += vy;
+            if (Collision()) return;
+
+            if (GameField[headX, headY] < 0)
+            {
+                score++;
+                apples--;
+                if (apples == 0)
+                {
+                    quit = true;
+                    return;
+                }
+                GameField[headX, headY] = 1;
+                Next(headX - vx, headY - vy, 1, 1);
+            }
+            else
+                Next(headX, headY, 1);
+
+        }
+        
+        void Next(int tailX, int tailY, int n, int p = 0)
+        {
+
+            GameField[tailX, tailY] = n + p;
+
+            if (GameField[tailX + 1, tailY] == n + p) Next(tailX + 1, tailY, n + 1, p);
+            else
+                if (GameField[tailX - 1, tailY] == n + p) Next(tailX - 1, tailY, n + 1, p);
+            else
+                if (GameField[tailX, tailY - 1] == n + p) Next(tailX, tailY - 1, n + 1, p);
+            else
+                if (GameField[tailX, tailY + 1] == n + p) Next(tailX, tailY + 1, n + 1, p);
+            else
+                if (p == 0) GameField[tailX, tailY] = 0;
+
+        }
+
         void KeyBoardUpdate()
         {
 
@@ -80,7 +127,7 @@
                             Console.WriteLine('o');
                             break;
 
-                        default:    
+                        default:
                             Console.WriteLine('#');
                             break;
                     }
@@ -144,7 +191,7 @@
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.SetCursorPosition(j + 25, i + 10);
                     Console.Write(ss[i][j]);
-                    System.Threading.Thread.Sleep(5);
+                    System.Threading.Thread.Sleep(10);
                 }
             Console.SetCursorPosition(30, 25);
             Console.Write("PRESS ANY KEY TO START");
@@ -154,14 +201,29 @@
         {
             Init();
             SplashScreen();
-            Load();
-            PrintGameField();
-            
+            Console.ReadKey();
+            while (lifes>0)
+            {
+                Load(++level);
+                PrintGameField();
+                Console.ReadKey();
+                while (!quit)
+                {
+                    KeyBoardUpdate();
+                    Update();
+                    PrintGameField();
+                }
+                lifes--;
+                quit = false;
+            }
+
         }
+
         static void Main(string[] args)
         {
             Program program = new Program();
             program.Game();
+            Console.ReadKey();
         }
     }
 }
