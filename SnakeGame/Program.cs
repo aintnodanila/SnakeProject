@@ -147,7 +147,7 @@
             GameField = new int[w + 1, h + 1];
             GameField[headX, headY] = 1;
             Random random = new Random();
-            mushrooms = garden * 5 + 20;
+            mushrooms = 10*(garden + 1);
 
             for (int i = 0; i < mushrooms; i++)
                 GameField[random.Next(1, w), random.Next(1, h)] = -1;
