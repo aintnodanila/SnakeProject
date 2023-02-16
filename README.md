@@ -13,7 +13,7 @@
 
 - This game is currently supported only on Windows platform.
 - You can enter full-screen mode for your comfort, if you wish.
-- If the game is not running or running incorrectly, please try to choose the option "Start as administrator" while opening the game file.
+- If the game is not running or running incorrectly, please try to choose the option "Run as administrator" while opening the game file.
 
 ## Development ideas
 
