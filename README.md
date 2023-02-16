@@ -20,4 +20,4 @@
 - Add obstacles
 - Add more gardens (levels)
 - Linux, Mac platforms
-- Add snake speed with every level 
+- Add snake speed growth with every level 
