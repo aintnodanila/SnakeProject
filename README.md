@@ -18,6 +18,6 @@
 ## Development ideas
 
 - Add obstacles
-- Add new gardens (levels)
+- Add more gardens (levels)
 - Linux, Mac platforms
 - Add snake speed with every level 
